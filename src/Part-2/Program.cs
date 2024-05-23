@@ -11,6 +11,7 @@ internal class Program
 
         Animal animal = new Animal();
         animal.Eat();
+        animal.ShowLegs();
 
         Laptop laptop = new Laptop();
         Iphone iphone = new Iphone();
@@ -18,5 +19,10 @@ internal class Program
         iphone.TestShow();
         var owner = "Son";
         laptop.ShowInfo(owner);
+
+        Student student = new Student();
+        student.Say();
+        student.Work();
+        student.Eat();
     }
 }
