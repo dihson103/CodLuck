@@ -116,19 +116,63 @@ internal class Program
         Console.WriteLine(isAllLiveInHaNoi ? "Yes" : "No");
     }
 
+    private static List<Student> TakeTwoStdudentQuery()
+    {
+        var students = (from student in Students
+                        select student).Take(2);
+        return students.ToList();
+    }
+
+    private static List<Student> TakeTwoStudentMethod()
+    {
+        return Students.Take(2).ToList();
+    }
+
+    private static List<Student> SkipStudentQuery()
+    {
+        var students = ( from student in Students
+                         select student).Skip(2);
+        return students.ToList();
+    }
+
+    private static List <Student> SkipStudentMethod()
+    {
+        return Students.Skip(2).ToList();
+    }
+
+    private static Student First()
+    {
+        // if query is null, it will throw an exception
+        return Students.First();
+    }
+
+    private static Student? FirstOrDefault()
+    {
+        //if the query is null, it will return null
+        return Students.FirstOrDefault();
+    }
+
     private static void Main(string[] args)
     {
         //var students = GetStudentsAgeMoreThan20Query();
         //var students = GetStudentsAgeMoreThan20Method();
+
+        //var students = TakeTwoStdudentQuery();
+        //var students = TakeTwoStudentMethod();
+
+        //var students = SkipStudentMethod();
+        //var students = SkipStudentQuery();
+
         //foreach (var student in students)
         //{
-        //    Console.WriteLine($"{student.Id} - {student.Name} - {student.Address} - {student.Age}");
+            //Console.WriteLine($"{student.Id} - {student.Name} - {student.Address} - {student.Age}");
         //}
-
 
         //GroupBy_Query();
         //GroupBy_Method();
         //Any();
-        All();
+        //All();
+
+
     }
 }
